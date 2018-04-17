@@ -52,21 +52,28 @@
                  * attempts to load this file in the future.
                  */
                 resourceCache[url] = img;
-
                 /* Once the image is actually loaded and properly cached,
                  * call all of the onReady() callbacks we have defined.
                  */
                 if(isReady()) {
+                    console.log(resourceCache);
                     readyCallbacks.forEach(function(func) { func(); });
+                    console.log(readyCallbacks);
                 }
+                console.log("loadcheck");
+                console.log(resourceCache);
             };
 
             /* Set the initial cache value to false, this will change when
              * the image's onload event handler is called. Finally, point
              * the image's src attribute to the passed in URL.
              */
+
+            console.log(readyCallbacks);
             resourceCache[url] = false;
+            console.log(resourceCache);
             img.src = url;
+            console.log(img.src);
         }
     }
 
@@ -97,6 +104,7 @@
      */
     function onReady(func) {
         readyCallbacks.push(func);
+        console.log(readyCallbacks);
     }
 
     /* This object defines the publicly accessible functions available to

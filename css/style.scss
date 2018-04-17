@@ -1,0 +1,129 @@
+body {
+    text-align: center;
+    font-size: 30px;
+    font-family: Anton, sans-serif;
+    background: linear-gradient(#141e30,#243b55);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.flex {
+    display: flex;
+    max-width: 100%;
+}
+
+.center {
+    justify-content:center;
+}
+
+#play-interface {
+    width: 585px;
+    max-width: 100%;
+    background: white;
+}
+
+#score-bar {
+    padding: 0 40px;
+}
+
+.title-sub-box {
+    width: 50%;
+    margin: 20px 0;
+}
+
+#target {
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.icon {
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+#life,
+#star {
+    width: 25%;
+    align-items:center;
+}
+
+#score {
+    width: 50%;
+    text-align: right;
+}
+
+.icon {
+    width: 50.5px;
+    height: 85.5px;
+}
+
+canvas {
+    margin-top: -50px;
+}
+
+.control-btn {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 14px 40px;
+    min-width: 170px;
+    border: none;
+    border-radius: 30px;
+    background: #a67a2e;
+    transition: all .2s ease-in-out;
+    margin-top: 30px;
+    
+    &:hover,
+    &:focus,
+    &:active {
+      background: darken(#a67a2e, 10%);
+      border: none;
+      outline: none;
+    }
+  }
+
+#instruction {
+    margin-left: 3px;
+}
+
+.hide-box {
+    display: none;
+}
+
+#instruction-note {
+    background-color: rgb(238,232,170);
+    font-size: 18px;
+    font-family: arial;
+    padding: 10px 10% 10% 10%;
+    text-align: left;
+    width:  300px;
+}
+
+.instru-title {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    font-size: 22px;
+    color: Coral;
+    text-shadow: 1px 1px white;
+}
+
+.instru-subtitle {
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-top: 22px;
+}
+
+.arrow-image {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+    padding-top: 10px
+}
+
+.note {
+    margin-top: 10px;
+    margin-bottom: 6px;
+}

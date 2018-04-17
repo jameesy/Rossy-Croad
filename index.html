@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Crossy Roads: But Not as Good</title>
+    <title>Rossy Croad</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
 </head>
+
 <body>
+
+    <div id="screen-view" class="flex center">
+        <section id="play-interface">
+
+                <!--<p class="title-sub-box" id="instruction-btn">View Instructions ></p>-->
+
+            <div id="score-bar" class="flex">
+
+                <div id="life" class="flex">
+                    <!--<img class="icon" src="./images/Heart.png" alt="life">-->
+                     Lives:&nbsp;<span id="life-count">5</span>
+                </div>
+
+                <div id="star" class="flex">
+                    <!--<img class="icon" src="./images/Star.png" alt="star">-->
+                    Stars:&nbsp;<span id="star-count">0</span>
+                </div>
+
+                <p id="score">Score:
+                    <span id="score-count">0</span>
+                </p>
+
+            </div>
+
+
+            <div id="control-panel">
+                <button class="control-btn" id="start">Start</button>
+                <button class="control-btn" id="pause">Pause</button>
+            </div>
+
+        </section>
+    </div>
+    
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
 </body>
+
 </html>
