@@ -21,16 +21,14 @@ var Engine = (function(global) {
      */
     var doc = global.document,
         win = global.window,
-        playInterface = doc.getElementById("play-interface"),
-        controlPanel = doc.getElementById("control-panel"),
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
 
     canvas.width = 505;
-    canvas.height = 606;
-    // insert canvas inside playInterface and before controlPanel
-    playInterface.insertBefore(canvas,controlPanel);
+    // canvas.height = 606;
+    canvas.height = 590;
+    doc.body.appendChild(canvas);
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -73,17 +71,23 @@ var Engine = (function(global) {
     }
 
     /* This function is called by main (our game loop) and itself calls all
-     * of the functions which may need to update entity's data.
+     * of the functions which may need to update entity's data. Based on how
+     * you implement your collision detection (when two entities occupy the
+     * same space, for instance when your character should die), you may find
+     * the need to add an additional function call here. For now, we've left
+     * it commented out - you may or may not want to implement this
+     * functionality this way (you could just implement collision detection
+     * on the entities themselves within your app.js file).
      */
     function update(dt) {
         updateEntities(dt);
+        checkCollisions(allEnemies, player);
     }
 
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
-     * player object. It will call the update function for star item if there is one.
-     * These update methods should focus purely on updating
+     * player object. These update methods should focus purely on updating
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
@@ -92,9 +96,6 @@ var Engine = (function(global) {
             enemy.update(dt);
         });
         player.update();
-        if(star) {
-            star.update();
-        }
     }
 
     /* This function initially draws the "game level", it will then call
@@ -137,53 +138,6 @@ var Engine = (function(global) {
         }
 
         renderEntities();
-
-        //call checkWin function for player to see whether the game wins.
-        //then draw/render corresponding game message on the canvas
-        player.checkWin();
-
-        //if win the game, render winning message
-        if(winGame) {
-            //draw bottom rectanglar box
-            createCanvasBox();
-
-            //draw celebration image
-            var imgCelebrate = new Image();
-            //celebration image source: http://www.free-icons-download.net/images/celebration-icons-24203.png
-            imgCelebrate.src = "images/celebration.png";
-            ctx.drawImage(imgCelebrate, 0, 0, 512, 512, 0, 140, 128, 128);
-
-            //draw styled text
-            createCanvasText("Congratulations! You win the game!",115,200,"orange");
-            createCanvasText("click RESTART to play again", 115, 260);
-
-        //if lose the game, render losing message
-        } else if(loseGame) {
-            //draw bottom rectanglar box
-            createCanvasBox();
-
-            //draw styled text
-            createCanvasText("Game Over ... You final score is " + numScore + "...", 70, 200, "rgb(200,200,0)");
-            createCanvasText("Click RESTART to play again", 70, 260);
-        }
-    }
-
-    //this function create styled text on canvas
-    function createCanvasText(text,x,y,color="white") {
-        ctx.fillStyle = color;
-        ctx.strokeStyle = "black";
-        ctx.lineWidth = 1;
-        ctx.font = "26px anton";
-        ctx.fillText(text.toUpperCase(), x, y);
-        ctx.strokeText(text.toUpperCase(), x, y);
-    }
-
-    //this function draw styled bottom rectanglar box
-    function createCanvasBox() {
-        ctx.globalAlpha = 0.8;
-        ctx.fillRect(10,150,485,130);
-        ctx.strokeRect(10,150,485,130);
-        ctx.globalAlpha = 1;
     }
 
     /* This function is called by the render function and is called on each game
@@ -199,9 +153,6 @@ var Engine = (function(global) {
         });
 
         player.render();
-        if(star){
-            star.render();
-        }
     }
 
     /* This function does nothing but it could have been a good place to
@@ -222,8 +173,7 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-        'images/Star.png',
-        'images/char-princess-girl.png'
+        'images/char-cat-girl.png'
     ]);
     Resources.onReady(init);
 

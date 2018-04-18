@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+
+body {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background: linear-gradient(to right, rgba(19,25,31,1) 0%, rgba(38,51,64,1) 100%);
+}
+
+.flex {
+  display: flex;
+  max-width: 100%;
+}
+
+.center {
+  justify-content: center;
+}
+
+#play-interface {
+  position: absolute;
+  z-index: -1;
+  width: 585px;
+  height: 600px;
+  max-width: 100;
+  background: white;
+  box-shadow: 0px 6px 60px 0px rgba(38, 51, 64, 0.08);
+  border: none;
+  margin-top: 5px;
+  padding: 10px 5px 25px 5px;
+  border-radius: 16px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #000;
+  font-family: "Roboto Mono", monospace;
+  
+}
+
