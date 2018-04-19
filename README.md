@@ -14,7 +14,7 @@ I Want To Play Rossy Croads!
 
 ### Method Two
 
-Direct URL will be coming shortly --- WATCH THIS SPACE
+Visit it here --- https://codepen.io/JABedford/pen/GdgOPN
 
 
 
