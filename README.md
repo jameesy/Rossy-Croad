@@ -2,6 +2,8 @@ Rossy Croad
 ===============================
 A budget version of Crossy Road. Created as the project for the Object Orientated Programming section of the Google/Udacity scholarship.
 
+
+
 I Want To Play Rossy Croads!
 ----------
 ### Method One
@@ -13,6 +15,8 @@ I Want To Play Rossy Croads!
 ### Method Two
 
 Direct URL will be coming shortly --- WATCH THIS SPACE
+
+
 
 How to Play
 -----------
@@ -32,3 +36,9 @@ Click Start/Restart button or press "Enter" Key.
 Click Pause/Continue button or press "space" Key.
 3. PLAYER:
 Use the keyboard arrows to move the player
+
+
+Resources
+----------
+* JQuery - https://jquery.com/
+* SweetAlert.js - https://sweetalert.js.org/guides/
