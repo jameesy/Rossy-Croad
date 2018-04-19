@@ -1,9 +1,9 @@
 // Global variables
-const INITIAL_X = 202; // Initial X coordinate for the player
-const INITIAL_Y = 415; // Initial Y coordinate for the player
-const COLLIDED  = 50; // Collision measurement
-const speeds = [300, 230, 400]; // Initial speeds
-let score = 0; // Initial score
+const startPositionX = 202; // Starting X coordinate for the player sprite
+const startPositionY = 415; // Starting Y coordinate for the player sprite
+const COLLIDED  = 50; // Collision 
+const speeds = [300, 230, 400]; // Starting speeds
+let score = 0; // Starting score - 0
 
 // Common parent for Enemies and Player
 class Element {
@@ -13,14 +13,15 @@ class Element {
     this.sprite = sprite;
   }
 
-  // Draw game elements on the screen
+  // Render the game elements on the screen
   render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   }
 }
 
-// Enemy
+// Enemy sprite
 class Enemy extends Element {
+  // Pull from engine.js 
   constructor(x, y, sprite = 'images/enemy-bug.png') {
     super(x, y, sprite);
     this.x = x;
@@ -30,9 +31,7 @@ class Enemy extends Element {
   }
 
   update(dt) {
-    // Movement is multiplied by 'dt' so it will ensure the game runs at the same speed for all computers
     this.x += this.speed * dt;
-    // Canvas width is set to 505 (see engine.js line 28), therefore when the enemy reaches this point, or further, they will be set back to point 0 on the x-axis
     if (this.x >= 505) {
       this.x = 0;
     }
@@ -41,25 +40,26 @@ class Enemy extends Element {
 
 // Player
 class Player extends Element {
-  constructor(x, y, sprite = 'images/char-cat-girl.png') {
+  // Pull from engine.js
+  constructor(x, y, sprite = 'images/char-boy.png') {
     super(x, y, sprite);
     this.x = x;
     this.y = y;
     this.sprite = sprite;
   }
 
-  // Gets the player back to the initial position
+  // Resets the player sprite back to the initial position
   reset(x, y) {
     this.x = x;
     this.y = y;
   }
 
-  // The player wins the game when they reach the water
+  // The player position resets when they reach the water
   update() {
-    // Water reached?
+    // Is the water reached?
     if (this.y <= 0) {
-      this.reset(INITIAL_X, INITIAL_Y); // Go back to the start
-      score += 1; // Score goes up
+      this.reset(startPositionX, startPositionY); // Go back to the start
+      score ++; // Score increases;
       $('#score').text(score);
     }
   }
@@ -90,7 +90,7 @@ const allEnemies = [
 ];
 
 // Instantiating the player
-const player = new Player(INITIAL_X, INITIAL_Y);
+const player = new Player(startPositionX, startPositionY);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -106,17 +106,21 @@ document.addEventListener('keyup', function(e) {
 
 /**
  * 1. Checks if the player collided with an enemy
- * 2. Resets score back to zero
- * 3. Shows the player an alert informing that a collision happened
+ * 2. Displays sweet alert message, depending on how many was scored.
+ * 3. Resets score back to zero
  * 4. Resets player's position back to the start
  */
 function checkCollisions(allEnemies, player) {
   for (enemy of allEnemies) {
     if ((player.y >= enemy.y - COLLIDED && player.y <= enemy.y + COLLIDED) && (player.x >= enemy.x - COLLIDED && player.x <= enemy.x + COLLIDED)) {
-      swal(' Bang! Smash! Wallop!','Mate, you messed up! Your score is reset and you go back to the start!');
+      if (score <=4) {
+          swal({ title: "BANG! SMASH! WALLOP!", text: "That was terrible! You Scored: " + score, type: "error", confirmButtonText: "Play Again" });
+      } else {
+          swal({ title: "BANG! SMASH! WALLOP!", text: "Congrats! You Scored: " + score, type: "error", confirmButtonText: "Play Again" });
+      }
       score = 0;
       $('#score').text(score);
-      player.reset(INITIAL_X, INITIAL_Y);
+      player.reset(startPositionX, startPositionY);
     }
   }
 };
