@@ -1,6 +1,6 @@
 Rossy Croad
 ===============================
-A budget version of Crossy Road. Created as the project for the Object Orientated Programming section of the Google/Udacity scholarship.
+A budget, less awesome version of Crossy Road. Created as the project for the Object Orientated Programming section of the Google/Udacity scholarship.
 
 
 
@@ -22,23 +22,17 @@ How to Play
 -----------
 ### Game Rules
 
-1. TARGET: Reach 1000 points to win!
-2. SCORE RULES:
-- Reach water: +50 pts
-- Catch a star: +100 pts
-3. LIFE RULES:
-If hit by a bug, lose 1 life. You have a maximum of 5 lives.
+Simply get the character to the other side of the incredibly treacherous terrain. Once
+you reach the water, you are taken back to your starting position and are free to start again.
+Your score increases on every safe arrival to the water, so test yourself and see how many
+you can get!
 
-### Operation
-1. START/RESTART:
-Click Start/Restart button or press "Enter" Key.
-2. PAUSE/CONTINUE:
-Click Pause/Continue button or press "space" Key.
-3. PLAYER:
-Use the keyboard arrows to move the player
+### Controls
+The keyboard arrows move the character. This is all you need!
+(Currently this game is not playable on touch devices.)
 
 
 Resources
 ----------
 * JQuery - https://jquery.com/
-* SweetAlert.js - https://sweetalert.js.org/guides/
+* SweetAlert.js - https://sweetalert.js.org/
