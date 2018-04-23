@@ -1,6 +1,6 @@
 Rossy Croad
 ===============================
-A budget, less awesome version of Crossy Road. Created as the project for the Object Orientated Programming section of the Google/Udacity scholarship.
+A budget, less awesome version of Crossy Road. Created with Javascript as the project for the Object Orientated Programming section of the Google/Udacity scholarship.
 
 
 
@@ -36,3 +36,12 @@ Resources
 ----------
 * JQuery - https://jquery.com/
 * SweetAlert.js - https://sweetalert.js.org/
+
+
+Coming Soon
+----------
+There are more features I would like to create to add to these game. Unfortunately times disallows this from happening, and I need to submit this project within the time frame of the scholarship. I am definitely going to revisit this game though and add more features:
+* A Global Leaderboard - Users can submit their score and initials.
+* Character Selection - Users can select their character at the start of the game.
+* Extra Lives
+* Rework the method of powering the bugs - These at the moment all run at the same time so it is possible to work out a rythym. I want to randomize the bugs movement.
