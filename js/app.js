@@ -64,11 +64,7 @@ class Player extends Element {
     }
   }
 
-  /**
-   * Handles key input received by the player:
-   * 1. Walks one square when left key, right key, up key or down key is pressed
-   * 2. Does not let player wander off canvas
-   */
+// Keyboard controls
   handleInput(key) {
     if (key === 'left' && this.x > 0) {
       this.x -= 101;
@@ -82,14 +78,14 @@ class Player extends Element {
   }
 }
 
-// Instantiating all enemies
+// Initiating all enemies
 const allEnemies = [
   new Enemy(0, 60),
   new Enemy(202, 145),
   new Enemy(404, 230)
 ];
 
-// Instantiating the player
+// Initiating the player
 const player = new Player(startPositionX, startPositionY);
 
 // This listens for key presses and sends the keys to your
