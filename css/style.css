@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono);
+body {
+  text-align: center;
+  background: linear-gradient(to right, #13191f 0%, #263340 100%); }
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  color: black;
+  font-family: "Roboto Mono", monospace; }
+
+.flex {
+  display: flex;
+  max-width: 100%; }
+
+.center {
+  justify-content: center; }
+
+#play-interface {
+  position: absolute;
+  z-index: -1;
+  width: 585px;
+  height: 600px;
+  max-width: 100;
+  background: white;
+  box-shadow: 0px 6px 60px 0px rgba(38, 51, 64, 0.08);
+  border: none;
+  margin-top: 5px;
+  padding: 10px 5px 25px 5px;
+  border-radius: 16px; }
