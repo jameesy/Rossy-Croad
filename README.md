@@ -1,6 +1,6 @@
 Rossy Croad
 ===============================
-A budget, less awesome version of Crossy Road. Created with Javascript as the project for the Object Orientated Programming section of the Google/Udacity scholarship.
+A budget, less awesome version of Crossy Road. Created with Javascript.
 
 
 
